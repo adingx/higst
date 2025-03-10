@@ -20,3 +20,8 @@ The project is for learning and hacking gstreamer.
 * [meson build](https://mesonbuild.com/SimpleStart.html)
 
 
+### Examples
+
+* [gobject-modern-hello-world](https://github.com/nzjrs/gobject-modern-hello-world/)
+* [gobject-examples](https://github.com/zorgnax/gobject-examples)
+
