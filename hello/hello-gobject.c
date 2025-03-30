@@ -1,6 +1,7 @@
 /*
  * =====================================================================================
  * FROM: https://github.com/ToshioCP/Gobject-tutorial/blob/main/gfm/sec2.md
+ * 	https://docs.gtk.org/gobject/index.html
  * =====================================================================================
  */
 
@@ -8,6 +9,9 @@
 
 int
 main (int argc, char **argv) {
+
+  g_print("runtime version = %d.%d.%d\n", glib_major_version, glib_minor_version, glib_micro_version);
+
   GObject *instance1, *instance2;
   GObjectClass *class1, *class2;
   

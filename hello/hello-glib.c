@@ -10,8 +10,10 @@
 int
 main (void)
 {
+	g_print("runtime version = %d.%d.%d\n", glib_major_version, glib_minor_version, glib_micro_version);
+
     GString *my_string = g_string_new("This Hello world is %d chars long\n");
-    g_print(my_string->str, my_string->len);
+ 	g_print(my_string->str, my_string->len);
     g_string_free(my_string, TRUE);
     return 0;
 }

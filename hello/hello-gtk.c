@@ -1,4 +1,5 @@
-// FROM: https://www.gtk.org/docs/getting-started/hello-world
+// FROM: https://docs.gtk.org/gtk3/getting_started.html
+// 		 https://docs.gtk.org/gtk3/index.html
 
 #include <gtk/gtk.h>
 
@@ -15,26 +16,33 @@ activate (GtkApplication *app,
 {
   GtkWidget *window;
   GtkWidget *button;
+  GtkWidget *button_box;
 
   window = gtk_application_window_new (app);
-  gtk_window_set_title (GTK_WINDOW (window), "Hello");
+  gtk_window_set_title (GTK_WINDOW (window), "Window");
   gtk_window_set_default_size (GTK_WINDOW (window), 200, 200);
+
+  button_box = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
+  gtk_container_add (GTK_CONTAINER (window), button_box);
 
   button = gtk_button_new_with_label ("Hello World");
   g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
-  gtk_window_set_child (GTK_WINDOW (window), button);
+  g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_widget_destroy), window);
+  gtk_container_add (GTK_CONTAINER (button_box), button);
 
-  gtk_window_present (GTK_WINDOW (window));
+  gtk_widget_show_all (window);
 }
 
 int
 main (int    argc,
       char **argv)
 {
+  g_print("runtime version = %d.%d.%d\n", gtk_major_version, gtk_minor_version, gtk_micro_version);
+  
   GtkApplication *app;
   int status;
 
-  app = gtk_application_new ("org.gtk.example", G_APPLICATION_DEFAULT_FLAGS);
+  app = gtk_application_new ("org.gtk.example", G_APPLICATION_FLAGS_NONE);
   g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
   status = g_application_run (G_APPLICATION (app), argc, argv);
   g_object_unref (app);
