@@ -11,6 +11,18 @@ https://gstreamer.freedesktop.org/documentation/installing/for-android-developme
 * The tutorials code are in the `gst-docs` in the `examples/tutorials/` folder.
 	https://gitlab.freedesktop.org/gstreamer/gstreamer/-/tree/main/subprojects/gst-docs
 
+```shell
+# or wget https://github.com/GStreamer/gstreamer/archive/refs/tags/1.26.1.tar.gz
+git clone https://github.com/GStreamer/gstreamer
+cd gstreamer
+
+# android mediacodec porting for gst plugin
+ls -R ./gst-plugins-bad/sys/androidmedia
+
+# android-tutorials
+cd gstreamer/subprojects/gst-docs/examples/tutorials/android/
+vi -d android-tutorial-1/jni/tutorial-1.c android-tutorial-5/jni/tutorial-5.c
+```
 
 
 
