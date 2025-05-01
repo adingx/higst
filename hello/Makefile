@@ -13,6 +13,10 @@ bin_gtk: hello-gtk.c
 bin_gst: hello-gst.c
 	gcc -Wall $^ -o $@ `pkg-config --cflags --libs gstreamer-1.0`
 
+install:
+	sudo apt-get install libglib2.0-dev
+	# sudo apt-get install libgobject-2.0-dev
+	# sudo apt-get install libgtk-3-dev
 
 clean:
 	rm -f bin_*
