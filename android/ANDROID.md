@@ -22,6 +22,14 @@ ls -R ./gst-plugins-bad/sys/androidmedia
 # android-tutorials
 cd gstreamer/subprojects/gst-docs/examples/tutorials/android/
 vi -d android-tutorial-1/jni/tutorial-1.c android-tutorial-5/jni/tutorial-5.c
+
+# download gstreamer prebuilt package : https://gstreamer.freedesktop.org/download/#android
+wget https://gstreamer.freedesktop.org/data/pkg/android/1.26.1/gstreamer-1.0-android-universal-1.26.1.tar.xz
+# setting environment for finding gst libs
+export GSTREAMER_ROOT_ANDROID=/root/gst-android/
+./gradlew clean
+./gradlew assembleRelease
+ls -l ./android-tutorial-5/build/outputs/apk/release/android-tutorial-5-release-unsigned.apk
 ```
 
 
